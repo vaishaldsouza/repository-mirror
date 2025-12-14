@@ -1,123 +1,154 @@
-# Repository Mirror
+#  Repository Mirror Analyzer
 
-**Repository Mirror** is a Python-based tool that analyzes GitHub repositories or local projects and provides a detailed report including **score, summary, and personalized roadmap**. It evaluates code quality, documentation, project structure, testing, and development practices.
+Repository Mirror Analyzer is a Python + Streamlit tool that evaluates a GitHub repository or local project folder and provides:
 
----
+* A **project quality score**
+* **Skill level classification** (Beginner / Intermediate / Advanced)
+* A **human-readable summary**
+* A **personalized improvement roadmap**
 
-## Project Overview
-
-Repository Mirror helps developers, students, and mentors assess repository quality quickly and objectively.  
-The tool provides actionable recommendations to improve coding practices and project organization.
-
-### Key Features
-
-1. **Repository Cloning**
-   - Clone any public GitHub repository locally for analysis.
-
-2. **GitHub Metadata Extraction**
-   - Retrieve repository details such as languages, stars, forks, and description.
-
-3. **Static Code Analysis**
-   - Analyze Python code using Radon (complexity) and Pylint (quality).
-
-4. **Project Structure & Flags**
-   - Detect README, test files, and CI/CD workflows.
-   - Check folder structure, large files, and missing src/ directories.
-
-5. **Scoring Engine**
-   - Generates a 0–100 score.
-   - Assigns a proficiency level: Beginner, Intermediate, Advanced.
-
-6. **AI Mentor Guidance**
-   - Provides a written summary of repository quality.
-   - Generates a personalized roadmap with actionable steps.
+This tool is designed for students, developers, and mentors to quickly assess project readiness and best practices.
 
 ---
 
-## Setup Instructions
+##  Features
 
-1. Clone the repository:
+* Analyze **GitHub repositories** via URL
+* Analyze **local project folders**
+* Detect:
 
-```bash
-git clone https://github.com/<your-username>/repository-mirror.git
-cd repository-mirror
-````
+  * README presence
+  * Project structure quality
+  * Test coverage (basic detection)
+* Generate:
 
-2. Create a Python virtual environment:
-
-```bash
-python -m venv venv
-```
-
-3. Activate the virtual environment:
-
-* Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-* Linux/Mac:
-
-```bash
-source venv/bin/activate
-```
-
-4. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-5. Run the analyzer:
-
-```bash
-python analyzer.py
-```
+  * Numerical score (0–100)
+  * Skill level
+  * Actionable feedback
+* Streamlit-based **web UI**
+* CLI support via `analyzer.py`
 
 ---
 
-## Example Usage
+##  Tech Stack
 
-Analyze a GitHub repository:
-
-```
-Analyze (1) GitHub URL or (2) Local folder? Enter 1 or 2: 1
-Enter GitHub repository URL: https://github.com/vaishaldsouza/TechTide-Storefront
-
-Score: 55 / 100
-Level: Intermediate
-Summary:
-Strong code consistency; some improvements needed. Add unit tests for reliability. Introduce CI/CD workflows.
-Roadmap:
-- Add unit tests and integration tests
-- Introduce CI/CD using GitHub Actions
-- Improve code quality based on Pylint suggestions
-```
+* Python 3.9+
+* Streamlit
+* Git (for repository cloning)
+* Standard Python libraries (os, subprocess, tempfile)
 
 ---
 
-## Project Structure
+##  Project Structure
 
 ```
 repository-mirror/
 │
-├── analyzer.py        # Main script for repository analysis
-├── scorer.py          # Converts metrics into score and level
-├── mentor.py          # Generates summary and personalized roadmap
-├── requirements.txt   # Python dependencies
-└── README.md          # Project documentation
+├── analyzer.py        # Core analysis logic
+├── scorer.py          # Scoring algorithm
+├── mentor.py          # Summary & roadmap generator
+├── web_app.py         # Streamlit web interface
+├── requirements.txt  # Python dependencies
+└── README.md
 ```
 
 ---
 
-## Approach
+##  Setup Instructions (Windows)
 
-1. **Repository Cloning** – Clones the GitHub repository or analyzes a local folder.
-2. **Metadata Retrieval** – Fetches repository details using GitHub API.
-3. **Static Code Analysis** – Measures complexity and quality of Python files.
-4. **Project Structure & Flags** – Detects README, tests, CI/CD workflows, folder structure.
-5. **Scoring Engine** – Combines all metrics into a numerical score and proficiency level.
-6. **AI Mentor Guidance** – Generates a written summary and roadmap with improvement suggestions.
+### 1️⃣ Create Virtual Environment
+
+```powershell
+py -m venv venv
+```
+
+### 2️⃣ Activate Virtual Environment
+
+```powershell
+venv\Scripts\Activate.ps1
+```
+
+> If PowerShell blocks activation:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+---
+
+### 3️⃣ Install Dependencies
+
+```powershell
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Running the Application
+
+### 🔹 Streamlit Web App
+
+```powershell
+streamlit run web_app.py
+```
+
+Then open:
+
+```
+http://localhost:8501
+```
+
+---
+
+### 🔹 Command Line (CLI)
+
+```powershell
+py analyzer.py
+```
+
+Follow the prompts to analyze a GitHub repository.
+
+---
+
+##  Sample Output
+
+```
+Score: 50 / 100
+Level: Intermediate
+
+Summary:
+README missing or incomplete.
+Add unit tests for reliability.
+Introduce CI/CD pipelines.
+
+Personalized Roadmap:
+- Add unit tests and integration tests
+- Improve project structure
+- Update README documentation
+- Set up CI/CD automation
+```
+
+---
+
+##  Use Cases
+
+* Portfolio evaluation
+* Student project assessment
+* Hackathon submissions
+* Internship readiness checks
+* Self-improvement guidance
+
+---
+##  Notes
+
+* Ensure no programs are locking cloned repositories
+* Close file explorers if Git clone fails on Windows
+* Internet connection required for GitHub analysis
+
+---
+
+## 📜 License
+
+This project is open-source and intended for educational use.
 
 ---
