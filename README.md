@@ -121,5 +121,3 @@ repository-mirror/
 6. **AI Mentor Guidance** – Generates a written summary and roadmap with improvement suggestions.
 
 ---
-Do you want me to do that next?
-```
