@@ -1,24 +1,36 @@
-def final_score(metrics: dict, project_flags: list, readme_flags: list, test_count: int) -> dict:
-    score = 50.0
+# scorer.py
 
-    # Code quality
-    score += metrics.get("pylint_score", 0) * 5 / 10
-    # Project structure
-    if "Missing src/lib folder" not in project_flags:
-        score += 10
-    # README
-    if not readme_flags:
-        score += 10
-    # Tests
-    if test_count > 0:
-        score += 10
-    # Cap
+def final_score(metrics, readme_flags, test_count):
+    """
+    Calculate a simple score based on metrics, README presence, and tests.
+    Returns a dict with 'score' and 'level'.
+    """
+    score = 0
+
+    # Python files count
+    python_count = metrics.get("python_files_count", 0)
+    if python_count > 0:
+        score += min(python_count * 5, 20)
+
+    # README presence
+    if readme_flags.get("readme_present", False):
+        score += 20
+
+    # Test count
+    score += min(test_count * 5, 20)
+
+    # Extra for project structure (src/tests folders)
+    score += 10
+
+    # Cap at 100
     score = min(score, 100)
-    # Level
+
+    # Determine level
     if score >= 85:
         level = "Advanced"
     elif score >= 50:
         level = "Intermediate"
     else:
         level = "Beginner"
+
     return {"score": score, "level": level}

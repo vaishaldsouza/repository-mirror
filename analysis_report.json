@@ -1,9 +1,9 @@
 {
     "metadata": {
-        "repo_name": "TechTide-Storefront",
+        "repo_name": "",
         "python_files_count": 0,
-        "files_count": 44,
-        "folders_count": 20
+        "files_count": 3,
+        "folders_count": 0
     },
     "metrics": {
         "cyclomatic_complexity": {},
