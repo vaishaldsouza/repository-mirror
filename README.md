@@ -1,89 +1,75 @@
 # Repository Mirror
 
-**Repository Mirror** is an AI-driven system designed to analyze GitHub repositories and provide actionable insights. It evaluates repositories across multiple dimensions—including code quality, documentation, testing, and version control practices—and generates a **score, summary, and personalized improvement roadmap** for developers.
+**Repository Mirror** is a Python-based tool that analyzes GitHub repositories or local projects and provides a detailed report including **score, summary, and personalized roadmap**. It evaluates code quality, documentation, project structure, testing, and development practices.
 
 ---
 
 ## Project Overview
 
-A GitHub repository often represents a developer’s practical work. Repository Mirror helps developers, students, and mentors assess the quality of code, project structure, and development practices objectively.
+Repository Mirror helps developers, students, and mentors assess repository quality quickly and objectively.  
+The tool provides actionable recommendations to improve coding practices and project organization.
 
 ### Key Features
 
-1. **Repository Cloning**  
-   - Accepts a public GitHub repository URL and clones it locally for analysis.
+1. **Repository Cloning**
+   - Clone any public GitHub repository locally for analysis.
 
-2. **GitHub Metadata Extraction**  
-   - Retrieves repository details such as languages, stars, forks, and description via the GitHub API.
+2. **GitHub Metadata Extraction**
+   - Retrieve repository details such as languages, stars, forks, and description.
 
-3. **Static Code Analysis (Python)**  
-   - Uses **Radon** to measure cyclomatic complexity.  
-   - Uses **Pylint** to assess code quality and readability.  
-   - Computes average complexity and code quality scores.
+3. **Static Code Analysis**
+   - Analyze Python code using Radon (complexity) and Pylint (quality).
 
-4. **Project Flag Detection**  
-   - Detects the presence of `README.md`, test files, and CI/CD workflows.
+4. **Project Structure & Flags**
+   - Detect README, test files, and CI/CD workflows.
+   - Check folder structure, large files, and missing src/ directories.
 
-5. **Scoring Engine**  
-   - Generates a **0–100 score** based on metrics.  
-   - Assigns a proficiency level: Beginner, Intermediate, or Advanced.
+5. **Scoring Engine**
+   - Generates a 0–100 score.
+   - Assigns a proficiency level: Beginner, Intermediate, Advanced.
 
-6. **AI Mentor Guidance**  
-   - Generates a concise **summary** highlighting strengths and weaknesses.  
-   - Provides a **personalized roadmap** with actionable recommendations.
+6. **AI Mentor Guidance**
+   - Provides a written summary of repository quality.
+   - Generates a personalized roadmap with actionable steps.
 
 ---
 
 ## Setup Instructions
 
-1. **Clone the repository**
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/<your-username>/repository-mirror.git
 cd repository-mirror
 ````
 
-2. **Create a Python virtual environment**
+2. Create a Python virtual environment:
 
 ```bash
 python -m venv venv
 ```
 
-3. **Activate the virtual environment**
+3. Activate the virtual environment:
 
-* **Windows**
+* Windows:
 
 ```bash
 venv\Scripts\activate
 ```
 
-* **Linux/Mac**
+* Linux/Mac:
 
 ```bash
 source venv/bin/activate
 ```
 
-4. **Install dependencies**
+4. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-5. **(Optional) Set GitHub token** to fetch repository metadata
-
-* **Windows (PowerShell)**
-
-```powershell
-$env:GITHUB_TOKEN="ghp_your_token_here"
-```
-
-* **Linux/Mac**
-
-```bash
-export GITHUB_TOKEN="ghp_your_token_here"
-```
-
-6. **Run the analyzer**
+5. Run the analyzer:
 
 ```bash
 python analyzer.py
@@ -91,20 +77,22 @@ python analyzer.py
 
 ---
 
-## Sample Input / Output
+## Example Usage
 
-**Input:** `https://github.com/vaishaldsouza/TechTide-Storefront`
-
-**Output:**
+Analyze a GitHub repository:
 
 ```
-Score: 60 / 100
+Analyze (1) GitHub URL or (2) Local folder? Enter 1 or 2: 1
+Enter GitHub repository URL: https://github.com/vaishaldsouza/TechTide-Storefront
+
+Score: 55 / 100
 Level: Intermediate
 Summary:
-Strong code consistency; some improvements needed.
+Strong code consistency; some improvements needed. Add unit tests for reliability. Introduce CI/CD workflows.
 Roadmap:
-- Add unit tests
+- Add unit tests and integration tests
 - Introduce CI/CD using GitHub Actions
+- Improve code quality based on Pylint suggestions
 ```
 
 ---
@@ -117,7 +105,7 @@ repository-mirror/
 ├── analyzer.py        # Main script for repository analysis
 ├── scorer.py          # Converts metrics into score and level
 ├── mentor.py          # Generates summary and personalized roadmap
-├── requirements.txt   # Project dependencies
+├── requirements.txt   # Python dependencies
 └── README.md          # Project documentation
 ```
 
@@ -125,26 +113,13 @@ repository-mirror/
 
 ## Approach
 
-1. **Repository Cloning**: Clone the specified GitHub repository locally.
-2. **Metadata Retrieval**: Fetch repository metadata such as languages, stars, and forks using the GitHub API.
-3. **Static Code Analysis**: Analyze Python files using Radon and Pylint to compute complexity and code quality metrics.
-4. **Project Flag Detection**: Detect presence of README, tests, and CI/CD workflow files.
-5. **Scoring Engine**: Combine metrics and flags into a score (0–100) and assign a proficiency level.
-6. **AI Mentor Guidance**: Generate a summary and roadmap with actionable improvement steps.
+1. **Repository Cloning** – Clones the GitHub repository or analyzes a local folder.
+2. **Metadata Retrieval** – Fetches repository details using GitHub API.
+3. **Static Code Analysis** – Measures complexity and quality of Python files.
+4. **Project Structure & Flags** – Detects README, tests, CI/CD workflows, folder structure.
+5. **Scoring Engine** – Combines all metrics into a numerical score and proficiency level.
+6. **AI Mentor Guidance** – Generates a written summary and roadmap with improvement suggestions.
 
 ---
-
-## Future Enhancements
-
-* Support for multiple programming languages (JavaScript, HTML, CSS).
-* Analysis of commit history and commit message quality.
-* Detection of outdated dependencies and package management issues.
-* Integration with test coverage tools to provide more detailed insights.
-
----
-
-## License
-
-This project is open-source and freely available for academic and personal use.
-
+Do you want me to do that next?
 ```
