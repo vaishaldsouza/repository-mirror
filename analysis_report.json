@@ -1,36 +1,23 @@
 {
-    "score": 44,
-    "level": "Beginner",
-    "summary": "Basic project structure; significant improvements required. Folder structure can be improved: Missing src/ or lib/ folder; consider organizing source code.; Root folder contains mixed file types; consider organizing docs, code, and configs. Improve README: add Contributing guide Add unit tests for reliability. Introduce CI/CD workflows.",
-    "roadmap": [
-        "Refactor project structure: move source code to src/ and organize tests.",
-        "Update README: add Contributing guide",
-        "Add unit tests and integration tests.",
-        "Introduce CI/CD using GitHub Actions or similar.",
-        "Improve code quality based on Pylint suggestions."
-    ],
-    "metrics": {
+    "metadata": {
+        "repo_name": "TechTide-Storefront",
         "python_files_count": 0,
-        "avg_complexity": 0.0,
-        "pylint_score": 0.0,
-        "complexity_hotspots": []
+        "files_count": 44,
+        "folders_count": 20
     },
-    "flags": {
-        "has_readme": true,
-        "has_tests": false,
-        "has_ci": false,
-        "has_requirements": false
+    "metrics": {
+        "cyclomatic_complexity": {},
+        "pylint_score": 0.0
     },
-    "folder_analysis": {
-        "folder_issues": [
-            "Missing src/ or lib/ folder; consider organizing source code.",
-            "Root folder contains mixed file types; consider organizing docs, code, and configs."
-        ]
+    "score_data": {
+        "score": 50.0,
+        "level": "Intermediate"
     },
-    "readme_analysis": {
-        "sections": 20,
-        "has_installation": true,
-        "has_usage": true,
-        "has_contributing": false
-    }
+    "summary": "README missing or incomplete. Add unit tests for reliability. Introduce CI/CD pipelines for automation.",
+    "roadmap": [
+        "Add unit tests and integration tests.",
+        "Refactor project structure: move source code to src/ and organize tests.",
+        "Update README with Installation, Usage, and Contributing sections.",
+        "Set up CI/CD using GitHub Actions or similar."
+    ]
 }
